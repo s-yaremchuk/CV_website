@@ -2,64 +2,42 @@ import React, { createContext, useContext, useState } from 'react';
 
 const translations = {
   en: {
-    greeting: 'Hello, I am',
+    greeting: '', // Removed
     name: 'Serhii Yaremchuk',
     title: 'Junior Backend Developer',
     description: 'Passionate about building robust server-side solutions. Focused on JavaScript, APIs, and web technologies.',
-    viewProjects: 'View Projects',
+    viewProjects: 'Projects',
     downloadCV: 'Download CV',
-    aboutTitle: 'About Me',
+    aboutTitle: 'About & Education',
     aboutText: 'I am a junior backend developer with a strong foundation in JavaScript and web technologies. I enjoy building APIs, working with databases, and creating efficient server-side logic. Currently expanding my skills in React and modern frontend practices.',
-    skillsTitle: 'My Skills',
+    educationTitle: 'Education',
+    educationDegree: 'Computer Science',
+    educationUni: 'Ivan Franko National University',
+    educationYear: '3rd Year Student',
+    skillsTitle: 'Skills & Tech Stack',
     projectsTitle: 'Projects',
-    contactTitle: 'Get In Touch',
-    contactDescription: 'Have a project in mind or want to collaborate? Feel free to reach out!',
-    namePlaceholder: 'Your Name',
-    emailPlaceholder: 'Your Email',
-    messagePlaceholder: 'Your Message',
-    send: 'Send Message',
-    sending: 'Sending...',
-    sent: 'Message Sent!',
+    contactTitle: 'Contact',
     footerText: '© 2025 Serhii Yaremchuk. All rights reserved.',
-    builtWith: 'Built with React & GSAP',
-    location: 'Location',
-    locationValue: 'Ukraine',
-    focus: 'Focus',
-    focusValue: 'Backend Development',
-    level: 'Level',
-    levelValue: 'Junior / Trainee',
-    goal: 'Goal',
-    goalValue: 'Full-Stack Developer'
+    builtWith: 'Built with React & GSAP'
   },
   ua: {
-    greeting: 'Привіт, я',
+    greeting: '', // Removed
     name: 'Сергій Яремчук',
     title: 'Junior Backend Розробник',
     description: 'Захоплююся створенням надійних серверних рішень. Фокус на JavaScript, API та веб-технологіях.',
-    viewProjects: 'Мої Проєкти',
+    viewProjects: 'Проєкти',
     downloadCV: 'Завантажити CV',
-    aboutTitle: 'Про мене',
+    aboutTitle: 'Про мене та Освіта',
     aboutText: 'Я початківець бекенд-розробник з міцною базою в JavaScript та веб-технологіях. Мені подобається створювати API, працювати з базами даних та писати ефективну серверну логіку. Наразі розширюю свої навички в React та сучасних фронтенд-практиках.',
-    skillsTitle: 'Мої Навички',
+    educationTitle: 'Освіта',
+    educationDegree: 'Комп\'ютерні науки',
+    educationUni: 'Університет ім. Івана Франка',
+    educationYear: '3 курс',
+    skillsTitle: 'Навички та Технології',
     projectsTitle: 'Проєкти',
-    contactTitle: 'Зв\\'язатися',
-    contactDescription: 'Маєте проєкт або хочете співпрацювати? Не соромтеся написати!',
-    namePlaceholder: 'Ваше ім\\'я',
-    emailPlaceholder: 'Ваш Email',
-    messagePlaceholder: 'Ваше повідомлення',
-    send: 'Надіслати',
-    sending: 'Надсилаю...',
-    sent: 'Надіслано!',
+    contactTitle: 'Контакти',
     footerText: '© 2025 Сергій Яремчук. Усі права захищені.',
-    builtWith: 'Зроблено з React та GSAP',
-    location: 'Локація',
-    locationValue: 'Україна',
-    focus: 'Фокус',
-    focusValue: 'Backend Розробка',
-    level: 'Рівень',
-    levelValue: 'Junior / Trainee',
-    goal: 'Мета',
-    goalValue: 'Full-Stack Розробник'
+    builtWith: 'Зроблено з React та GSAP'
   }
 };
 
@@ -70,7 +48,7 @@ export const useLanguage = () => {
 };
 
 export const LanguageProvider = ({ children }) => {
-  const [lang, setLang] = useState('ua'); // Default to Ukrainian
+  const [lang, setLang] = useState('ua');
 
   const toggleLanguage = () => {
     setLang((prev) => (prev === 'en' ? 'ua' : 'en'));

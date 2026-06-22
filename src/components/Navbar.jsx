@@ -4,7 +4,7 @@ import './styles/Navbar.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const { lang, toggleLanguage, t } = useLanguage();
+  const { lang, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,17 +37,10 @@ const Navbar = () => {
           <a href="#projects" onClick={(e) => { e.preventDefault(); scrollTo('projects'); }} className="navbar__link">
             {lang === 'en' ? 'Projects' : 'Проєкти'}
           </a>
-          <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }} className="navbar__link">
-            {lang === 'en' ? 'Contact' : 'Контакти'}
-          </a>
         </div>
         
         <button onClick={toggleLanguage} className="navbar__lang-toggle">
           {lang === 'en' ? 'UA' : 'EN'}
-        </button>
-        
-        <button className="navbar__hamburger">
-          ☰
         </button>
       </div>
     </nav>

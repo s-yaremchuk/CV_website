@@ -12,7 +12,7 @@ const About = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.about-text', {
+      gsap.from('.about-grid > div', {
         scrollTrigger: {
           trigger: '.about-section',
           start: 'top 80%',
@@ -20,19 +20,8 @@ const About = () => {
         y: 30,
         opacity: 0,
         duration: 0.8,
-        ease: 'power3.out'
-      });
-
-      gsap.from('.about-card', {
-        scrollTrigger: {
-          trigger: '.about-cards',
-          start: 'top 80%',
-        },
-        x: 50,
-        opacity: 0,
-        duration: 0.6,
         stagger: 0.2,
-        ease: 'power3.out'
+        ease: 'power2.out'
       });
     }, aboutRef);
 
@@ -43,42 +32,17 @@ const About = () => {
     <section className="about-section" id="about" ref={aboutRef}>
       <h2 className="section-heading"><span>01.</span> {t.aboutTitle}</h2>
       
-      <div className="about-content">
+      <div className="about-grid">
         <div className="about-text">
           <p>{t.aboutText}</p>
         </div>
         
-        <div className="about-cards">
-          <div className="about-card">
-            <div className="about-card__icon">📍</div>
-            <div className="about-card__info">
-              <span className="about-card__label">{t.location}</span>
-              <span className="about-card__value">{t.locationValue}</span>
-            </div>
-          </div>
-          
-          <div className="about-card">
-            <div className="about-card__icon">💼</div>
-            <div className="about-card__info">
-              <span className="about-card__label">{t.focus}</span>
-              <span className="about-card__value">{t.focusValue}</span>
-            </div>
-          </div>
-          
-          <div className="about-card">
-            <div className="about-card__icon">🎓</div>
-            <div className="about-card__info">
-              <span className="about-card__label">{t.level}</span>
-              <span className="about-card__value">{t.levelValue}</span>
-            </div>
-          </div>
-          
-          <div className="about-card">
-            <div className="about-card__icon">🚀</div>
-            <div className="about-card__info">
-              <span className="about-card__label">{t.goal}</span>
-              <span className="about-card__value">{t.goalValue}</span>
-            </div>
+        <div className="education-block">
+          <h3 className="education-title">{t.educationTitle}</h3>
+          <div className="education-item">
+            <strong>{t.educationDegree}</strong>
+            <span>{t.educationUni}</span>
+            <span className="year">{t.educationYear}</span>
           </div>
         </div>
       </div>

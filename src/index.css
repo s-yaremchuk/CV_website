@@ -1,7 +1,7 @@
 /* ==========================================================================
    Portfolio — Master Stylesheet
    Design system tokens, reset, global typography, and base styles.
-   Aesthetic: dark terminal meets Apple product page.
+   Aesthetic: Brutalist / Swiss Design (Strict Black & White)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -14,22 +14,20 @@
    -------------------------------------------------------------------------- */
 :root {
   /* ── Color system ──────────────────────────────────────────────────────── */
-  --color-bg:             #0a0e1a;
-  --color-bg-secondary:   #111827;
-  --color-bg-card:        #1a1f2e;
-  --color-accent:         #64ffda;
-  --color-accent-blue:    #60a5fa;
-  --color-accent-purple:  #a78bfa;
-  --color-text:           #e2e8f0;
-  --color-text-muted:     #64748b;
-  --color-border:         #1e293b;
+  --color-bg:             #000000;
+  --color-bg-secondary:   #050505;
+  --color-bg-card:        #000000;
+  --color-accent:         #ffffff; /* Invert color */
+  --color-accent-blue:    #ffffff;
+  --color-accent-purple:  #ffffff;
+  --color-text:           #ffffff;
+  --color-text-muted:     #a3a3a3;
+  --color-border:         #333333;
 
   /* Derived / utility colors */
-  --color-accent-rgb:        100, 255, 218;   /* for rgba() usage           */
-  --color-accent-blue-rgb:   96, 165, 250;
-  --color-accent-purple-rgb: 167, 139, 250;
-  --color-bg-rgb:            10, 14, 26;
-  --color-overlay:           rgba(10, 14, 26, 0.85);
+  --color-accent-rgb:        255, 255, 255;
+  --color-bg-rgb:            0, 0, 0;
+  --color-overlay:           rgba(0, 0, 0, 0.9);
 
   /* ── Typography ────────────────────────────────────────────────────────── */
   --font-sans:  'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -47,42 +45,41 @@
   --text-6xl:   3.75rem;    /* 60px */
   --text-7xl:   4.5rem;     /* 72px */
 
-  --leading-tight:  1.15;
+  --leading-tight:  1.1;
   --leading-snug:   1.3;
-  --leading-normal: 1.6;
+  --leading-normal: 1.5;
   --leading-loose:  1.8;
 
-  --tracking-tight:  -0.025em;
+  --tracking-tight:  -0.03em;
   --tracking-normal:  0;
   --tracking-wide:    0.05em;
-  --tracking-wider:   0.1em;
 
   /* ── Spacing scale (4px base) ──────────────────────────────────────────── */
-  --spacing-xs:   0.25rem;  /*  4px */
-  --spacing-sm:   0.5rem;   /*  8px */
-  --spacing-md:   1rem;     /* 16px */
-  --spacing-lg:   1.5rem;   /* 24px */
-  --spacing-xl:   2rem;     /* 32px */
-  --spacing-2xl:  3rem;     /* 48px */
-  --spacing-3xl:  4rem;     /* 64px */
+  --spacing-xs:   0.25rem;
+  --spacing-sm:   0.5rem;
+  --spacing-md:   1rem;
+  --spacing-lg:   1.5rem;
+  --spacing-xl:   2rem;
+  --spacing-2xl:  3rem;
+  --spacing-3xl:  5rem;
 
-  /* ── Border radius ─────────────────────────────────────────────────────── */
-  --radius-sm:   4px;
-  --radius-md:   8px;
-  --radius-lg:   12px;
-  --radius-xl:   16px;
-  --radius-full: 9999px;
+  /* ── Border radius - BRUTALIST ─────────────────────────────────────────── */
+  --radius-sm:   0;
+  --radius-md:   0;
+  --radius-lg:   0;
+  --radius-xl:   0;
+  --radius-full: 0;
 
   /* ── Transitions ───────────────────────────────────────────────────────── */
-  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow:   500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast:   100ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow:   400ms ease;
 
-  /* ── Shadows ───────────────────────────────────────────────────────────── */
-  --shadow-sm:    0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md:    0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg:    0 8px 30px rgba(0, 0, 0, 0.5);
-  --shadow-glow:  0 0 20px rgba(var(--color-accent-rgb), 0.15);
+  /* ── Shadows - NO SHADOWS IN BRUTALISM ─────────────────────────────────── */
+  --shadow-sm:    none;
+  --shadow-md:    none;
+  --shadow-lg:    none;
+  --shadow-glow:  none;
 
   /* ── Z-index scale ─────────────────────────────────────────────────────── */
   --z-behind:   -1;
@@ -100,44 +97,31 @@
 
 /* --------------------------------------------------------------------------
    Modern CSS Reset
-   Inspired by Andy Bell's modern reset, trimmed for this project.
    -------------------------------------------------------------------------- */
 
-/* Box model: border-box everywhere */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Remove default list styles */
-ul,
-ol {
+ul, ol {
   list-style: none;
 }
 
-/* Prevent font-size inflation on mobile */
 html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
-}
-
-/* Smooth scrolling — Lenis takes over via JS, but this is the CSS fallback */
-html {
   scroll-behavior: smooth;
 }
 
-/* Lenis integration: let the library own scroll physics */
-html.lenis,
-html.lenis body {
+html.lenis, html.lenis body {
   height: auto;
 }
 
 .lenis.lenis-smooth {
-  scroll-behavior: auto; /* Lenis handles it */
+  scroll-behavior: auto;
 }
 
 .lenis.lenis-smooth [data-lenis-prevent] {
@@ -148,10 +132,9 @@ html.lenis body {
   overflow: hidden;
 }
 
-/* Body baseline */
 body {
   min-height: 100vh;
-  min-height: 100dvh;  /* dynamic viewport height for mobile */
+  min-height: 100dvh;
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
@@ -164,42 +147,29 @@ body {
   overflow-x: hidden;
 }
 
-/* Images, media defaults */
-img,
-picture,
-video,
-canvas,
-svg {
+img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
 
-/* Remove built-in form typography styles */
-input,
-button,
-textarea,
-select {
+input, button, textarea, select {
   font: inherit;
   color: inherit;
 }
 
-/* Anchor defaults */
 a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color var(--transition-fast);
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: all var(--transition-fast);
 }
 
 a:hover {
-  color: var(--color-accent-blue);
+  color: var(--color-bg);
+  background-color: var(--color-text);
+  text-decoration: none;
 }
 
-/* Remove textarea resize unless specified */
-textarea:not([rows]) {
-  min-height: 10em;
-}
-
-/* Anything targeted by an anchor gets extra scroll margin */
 :target {
   scroll-margin-block: 5ex;
 }
@@ -210,11 +180,12 @@ textarea:not([rows]) {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: 800;
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-text);
   text-wrap: balance;
+  text-transform: uppercase;
 }
 
 h1 { font-size: var(--text-5xl); }
@@ -225,36 +196,13 @@ h5 { font-size: var(--text-xl);  }
 h6 { font-size: var(--text-lg);  }
 
 p {
-  max-width: 65ch; /* optimal reading width */
+  max-width: 75ch;
   text-wrap: pretty;
 }
 
-code,
-pre,
-kbd,
-samp {
+code, pre, kbd, samp {
   font-family: var(--font-mono);
   font-size: 0.9em;
-}
-
-pre {
-  overflow-x: auto;
-  padding: var(--spacing-md);
-  background: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-}
-
-code {
-  padding: 0.15em 0.4em;
-  background: var(--color-bg-secondary);
-  border-radius: var(--radius-sm);
-  color: var(--color-accent);
-}
-
-pre code {
-  padding: 0;
-  background: none;
 }
 
 strong {
@@ -271,26 +219,24 @@ small {
    Selection Highlight
    -------------------------------------------------------------------------- */
 ::selection {
-  background: rgba(var(--color-accent-rgb), 0.25);
-  color: var(--color-accent);
+  background: var(--color-text);
+  color: var(--color-bg);
 }
 
 ::-moz-selection {
-  background: rgba(var(--color-accent-rgb), 0.25);
-  color: var(--color-accent);
+  background: var(--color-text);
+  color: var(--color-bg);
 }
 
 /* --------------------------------------------------------------------------
-   Custom Scrollbar (WebKit & Firefox)
+   Custom Scrollbar
    -------------------------------------------------------------------------- */
 
-/* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--color-border) transparent;
 }
 
-/* WebKit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -302,7 +248,7 @@ small {
 
 ::-webkit-scrollbar-thumb {
   background: var(--color-border);
-  border-radius: var(--radius-full);
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -311,7 +257,6 @@ small {
 
 /* --------------------------------------------------------------------------
    Focus-Visible — Accessibility
-   Only shows focus rings for keyboard navigation, not mouse clicks.
    -------------------------------------------------------------------------- */
 :focus {
   outline: none;
@@ -319,38 +264,13 @@ small {
 
 :focus-visible {
   outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-  border-radius: var(--radius-sm);
-}
-
-/* Buttons get a subtler glow ring */
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-  box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb), 0.15);
-}
-
-/* --------------------------------------------------------------------------
-   Reduced Motion — Accessibility
-   Respects user preference for less animation.
-   -------------------------------------------------------------------------- */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  outline-offset: 2px;
 }
 
 /* --------------------------------------------------------------------------
    Utility Classes
    -------------------------------------------------------------------------- */
 
-/* Visually hidden but accessible to screen readers */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -363,41 +283,6 @@ a:focus-visible {
   border: 0;
 }
 
-/* Container */
-.container {
-  width: 100%;
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: var(--container-pad);
-}
-
-/* Mono-font utility */
 .font-mono {
   font-family: var(--font-mono);
-}
-
-/* Section spacing */
-.section {
-  padding-block: var(--section-gap);
-}
-
-/* Gradient text utility */
-.gradient-text {
-  background: linear-gradient(
-    135deg,
-    var(--color-accent) 0%,
-    var(--color-accent-blue) 50%,
-    var(--color-accent-purple) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Glass card utility */
-.glass {
-  background: rgba(17, 24, 39, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.08);
 }

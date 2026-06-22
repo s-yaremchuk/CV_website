@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ExternalLink, Star, GitFork } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import './styles/Projects.css';
 
@@ -20,7 +21,6 @@ const Projects = () => {
         if (!response.ok) throw new Error('Failed to fetch projects');
         const data = await response.json();
         
-        // Filter out forks if preferred, or just take first 6
         setProjects(data);
         setLoading(false);
       } catch (err) {
@@ -40,11 +40,11 @@ const Projects = () => {
             trigger: '.projects-grid',
             start: 'top 80%',
           },
-          y: 50,
+          y: 30,
           opacity: 0,
           duration: 0.6,
           stagger: 0.1,
-          ease: 'power3.out'
+          ease: 'power2.out'
         });
       }, projectsRef);
 
@@ -58,7 +58,6 @@ const Projects = () => {
       
       <div className="projects-grid">
         {loading ? (
-          // Skeleton Loaders
           [1, 2, 3, 4, 5, 6].map((n) => (
             <div key={n} className="project-skeleton">
               <div className="skeleton-line title"></div>
@@ -77,9 +76,11 @@ const Projects = () => {
           projects.map((repo) => (
             <div key={repo.id} className="project-card">
               <div className="project-card__header">
-                <div className="project-card__folder">📁</div>
+                <div className="project-card__folder">Repository</div>
                 <div className="project-card__links">
-                  <a href={repo.html_url} target="_blank" rel="noopener noreferrer">↗</a>
+                  <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                    LINK <ExternalLink size={14} />
+                  </a>
                 </div>
               </div>
               <h3 className="project-card__title">{repo.name}</h3>
@@ -92,10 +93,10 @@ const Projects = () => {
                 </div>
                 <div className="project-card__stats">
                   {repo.stargazers_count > 0 && (
-                    <span className="project-card__stat">⭐ {repo.stargazers_count}</span>
+                    <span className="project-card__stat"><Star size={14} /> {repo.stargazers_count}</span>
                   )}
                   {repo.forks_count > 0 && (
-                    <span className="project-card__stat">🍴 {repo.forks_count}</span>
+                    <span className="project-card__stat"><GitFork size={14} /> {repo.forks_count}</span>
                   )}
                 </div>
               </div>
