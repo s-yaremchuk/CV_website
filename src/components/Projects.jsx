@@ -35,17 +35,20 @@ const Projects = () => {
   useEffect(() => {
     if (!loading && projects.length > 0) {
       const ctx = gsap.context(() => {
-        gsap.from('.project-card', {
-          scrollTrigger: {
-            trigger: '.projects-grid',
-            start: 'top 80%',
-          },
-          y: 30,
-          opacity: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: 'power2.out'
-        });
+        gsap.fromTo('.project-card', 
+          { y: 30, opacity: 0 },
+          {
+            scrollTrigger: {
+              trigger: '.projects-grid',
+              start: 'top 80%',
+            },
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power2.out'
+          }
+        );
       }, projectsRef);
 
       return () => ctx.revert();
