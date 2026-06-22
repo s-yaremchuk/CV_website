@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Mail, Phone, Github, Send } from 'lucide-react';
+import { Mail, Phone, Terminal, Send } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import './styles/Contact.css';
 
@@ -54,7 +54,7 @@ const Contact = () => {
             @Seryare
           </a>
           <a href="https://github.com/s-yaremchuk" target="_blank" rel="noopener noreferrer" className="contact-link">
-            <Github size={20} />
+            <Terminal size={20} />
             s-yaremchuk
           </a>
         </div>
