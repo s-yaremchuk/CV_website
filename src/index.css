@@ -17,15 +17,15 @@
   --color-bg:             #000000;
   --color-bg-secondary:   #050505;
   --color-bg-card:        #000000;
-  --color-accent:         #ffffff; /* Invert color */
-  --color-accent-blue:    #ffffff;
-  --color-accent-purple:  #ffffff;
-  --color-text:           #ffffff;
-  --color-text-muted:     #a3a3a3;
-  --color-border:         #333333;
+  --color-accent:         #F2EDE4; /* cream — invert target */
+  --color-accent-blue:    #F2EDE4;
+  --color-accent-purple:  #F2EDE4;
+  --color-text:           #F2EDE4; /* warm cream — pops against grain */
+  --color-text-muted:     #8C8680; /* warm grey */
+  --color-border:         #2E2C2A; /* warm dark border */
 
   /* Derived / utility colors */
-  --color-accent-rgb:        255, 255, 255;
+  --color-accent-rgb:        242, 237, 228; /* F2EDE4 */
   --color-bg-rgb:            0, 0, 0;
   --color-overlay:           rgba(0, 0, 0, 0.9);
 
