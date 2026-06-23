@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Mail, Phone, Terminal, Send } from 'lucide-react';
+import { Mail, Terminal, Send } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import './styles/Contact.css';
 
@@ -44,10 +44,6 @@ const Contact = () => {
           <a href="mailto:syaremchukk@gmail.com" className="contact-link">
             <Mail size={20} />
             syaremchukk@gmail.com
-          </a>
-          <a href="tel:+380996281216" className="contact-link">
-            <Phone size={20} />
-            +380 99 628 1216
           </a>
           <a href="https://t.me/Seryare" target="_blank" rel="noopener noreferrer" className="contact-link">
             <Send size={20} />
