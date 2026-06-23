@@ -11,6 +11,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import PosterBackground from './components/PosterBackground';
 
 import 'lenis/dist/lenis.css';
 import './index.css';
@@ -51,7 +52,8 @@ function App() {
 
   return (
     <LanguageProvider>
-      <div className="app-container">
+      <PosterBackground />
+      <div className="app-container" style={{ position: 'relative', zIndex: 1 }}>
         <Navbar />
         <main>
           <Hero />
