@@ -55,9 +55,13 @@ function App() {
         <Navbar />
         <main>
           <Hero />
+          <hr className="swiss-divider swiss-divider--thick" />
           <About />
+          <hr className="swiss-divider" />
           <Skills />
+          <hr className="swiss-divider" />
           <Projects />
+          <hr className="swiss-divider" />
           <Contact />
         </main>
         <Footer />

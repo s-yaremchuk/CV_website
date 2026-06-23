@@ -30,7 +30,7 @@ const About = () => {
 
   return (
     <section className="about-section" id="about" ref={aboutRef}>
-      <h2 className="section-heading"><span>01.</span> {t.aboutTitle}</h2>
+      <h2 className="section-heading" data-num="01"><span>01.</span> {t.aboutTitle}</h2>
       
       <div className="about-grid">
         <div className="about-text">

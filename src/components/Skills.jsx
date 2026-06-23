@@ -63,7 +63,7 @@ const Skills = () => {
 
   return (
     <section className="skills-section" id="skills" ref={skillsRef}>
-      <h2 className="section-heading"><span>02.</span> {t.skillsTitle}</h2>
+      <h2 className="section-heading" data-num="02"><span>02.</span> {t.skillsTitle}</h2>
       
       <div className="skills-list">
         {skillsData.map((skill, index) => (

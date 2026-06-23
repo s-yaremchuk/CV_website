@@ -57,7 +57,7 @@ const Projects = () => {
 
   return (
     <section className="projects-section" id="projects" ref={projectsRef}>
-      <h2 className="section-heading"><span>03.</span> {t.projectsTitle}</h2>
+      <h2 className="section-heading" data-num="03"><span>03.</span> {t.projectsTitle}</h2>
       
       <div className="projects-grid">
         {loading ? (

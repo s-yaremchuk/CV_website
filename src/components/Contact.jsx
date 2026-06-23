@@ -31,7 +31,7 @@ const Contact = () => {
 
   return (
     <section className="contact-section" id="contact" ref={contactRef}>
-      <h2 className="section-heading"><span>04.</span> {t.contactTitle}</h2>
+      <h2 className="section-heading" data-num="04"><span>04.</span> {t.contactTitle}</h2>
       
       <div className="contact-wrapper">
         <p className="contact-text">
