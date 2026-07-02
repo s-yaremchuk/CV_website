@@ -1,204 +1,273 @@
+/* ==========================================================================
+   Projects — Horizontal expandable cards, Brutalist / Swiss style
+   ========================================================================== */
+
 .projects-section {
-  padding: var(--spacing-3xl) var(--spacing-xl);
+  padding: var(--spacing-3xl) var(--spacing-lg);
   max-width: var(--container-max);
   margin: 0 auto;
 }
 
-/* ── Poster grid: 3 columns on desktop, tight gap ── */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px; /* newspaper printing gap */
-}
+/* ── Projects list (stacked vertical) ───────────────────────────────────── */
 
-/* ── Poster card ──────────────────────────────────── */
-.project-card {
-  position: relative;
-  background-color: #000;
-  border: 2px solid var(--color-border);
+.projects-list {
   display: flex;
   flex-direction: column;
-  min-height: 380px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: border-color 120ms ease;
-  color: var(--color-text);
+  gap: 0;
+  border-top: 2px solid var(--color-text);
 }
 
-.project-card:hover {
-  border-color: #fff;
-  z-index: 2;
+/* ── Individual card ─────────────────────────────────────────────────────── */
+
+.proj-card {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-xl) 0;
+  cursor: default;
+  transition: background-color var(--transition-fast);
 }
 
-/* Invert everything on hover */
-.project-card:hover .poster-band {
-  background: #fff;
-  color: #000;
-}
-.project-card:hover .poster-num {
-  color: rgba(0,0,0,0.08);
-}
-.project-card:hover .poster-body {
-  background: #fff;
-  color: #000;
-}
-.project-card:hover .poster-footer {
-  border-top-color: rgba(0,0,0,0.25);
-  color: #000;
-}
-.project-card:hover .poster-link {
-  color: #000;
-}
-.project-card:hover .poster-lang-tag {
-  border-color: rgba(0,0,0,0.3);
-  color: rgba(0,0,0,0.6);
+.proj-card--open {
+  border-bottom: 2px solid var(--color-text);
 }
 
-/* ── Top band: index number + link ── */
-.poster-band {
-  display: flex;
-  justify-content: space-between;
+/* ── Header row ──────────────────────────────────────────────────────────── */
+
+.proj-header {
+  display: grid;
+  grid-template-columns: 6rem 1fr auto;
   align-items: center;
-  padding: 10px 14px;
-  background: var(--color-border);
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  transition: background 120ms ease, color 120ms ease;
+  gap: var(--spacing-lg);
+  cursor: pointer;
+  padding-bottom: var(--spacing-md);
 }
 
-.poster-link {
+.proj-header:hover .proj-name {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ── Meta column (index + language) ─────────────────────────────────────── */
+
+.proj-meta {
   display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.proj-index {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: var(--tracking-wide);
+}
+
+.proj-lang {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text);
+  background: var(--color-border);
+  padding: 2px 6px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* ── Name ────────────────────────────────────────────────────────────────── */
+
+.proj-name {
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* ── Actions (GitHub link + toggle) ─────────────────────────────────────── */
+
+.proj-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.proj-github-link {
+  display: inline-flex;
   align-items: center;
   gap: 5px;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
   color: var(--color-text-muted);
   text-decoration: none;
-  transition: color 120ms ease;
-}
-.poster-link:hover {
-  text-decoration: underline;
-  background: transparent;
-}
-
-/* ── Ghost index number in the card body ── */
-.poster-num {
-  position: absolute;
-  bottom: 48px;
-  right: 10px;
-  font-family: var(--font-sans);
-  font-size: clamp(5rem, 10vw, 9rem);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.06em;
-  color: rgba(255,255,255,0.04);
-  user-select: none;
-  pointer-events: none;
-  transition: color 120ms ease;
-}
-
-/* ── Main body of the poster ── */
-.poster-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 18px 16px 12px;
-  background: #000;
-  transition: background 120ms ease, color 120ms ease;
-}
-
-.poster-title {
-  font-family: var(--font-sans);
-  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  margin-bottom: 12px;
-  word-break: break-word;
+  letter-spacing: var(--tracking-wide);
+  border: 1px solid var(--color-border);
+  padding: 5px 10px;
+  transition: all var(--transition-fast);
 }
 
-.poster-desc {
-  font-size: 0.78rem;
-  line-height: 1.55;
-  opacity: 0.55;
-  flex: 1;
-  max-width: 100%;
+.proj-github-link:hover {
+  color: var(--color-bg);
+  background: var(--color-text);
+  border-color: var(--color-text);
 }
 
-/* ── Footer: language tag + stats ── */
-.poster-footer {
+.proj-toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  width: 36px;
+  height: 36px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 16px;
-  border-top: 1px solid rgba(255,255,255,0.12);
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.proj-toggle:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-color: var(--color-text);
+}
+
+/* ── Summary ─────────────────────────────────────────────────────────────── */
+
+.proj-summary {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-loose);
+  max-width: 80ch;
+  margin-left: calc(6rem + var(--spacing-lg));
+  padding-bottom: var(--spacing-md);
+}
+
+/* ── Tags ────────────────────────────────────────────────────────────────── */
+
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-left: calc(6rem + var(--spacing-lg));
+}
+
+.proj-tag {
   font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
+  font-size: 11px;
   text-transform: uppercase;
-  transition: border-top-color 120ms ease, color 120ms ease;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: 3px 8px;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
 }
 
-.poster-lang-tag {
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 2px 7px;
-  transition: border-color 120ms ease, color 120ms ease;
+.proj-tag:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
 }
 
-.poster-stats {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  opacity: 0.5;
-}
-.poster-stat {
-  display: flex;
-  align-items: center;
-  gap: 3px;
+/* ── Expanded details ────────────────────────────────────────────────────── */
+
+.proj-details {
+  margin-top: var(--spacing-xl);
+  margin-left: calc(6rem + var(--spacing-lg));
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-xl);
+  animation: expandIn 0.25s ease forwards;
 }
 
-/* ── Skeleton ── */
-.project-skeleton {
-  border: 2px solid var(--color-border);
-  min-height: 380px;
+@keyframes expandIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.proj-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+}
+
+.proj-details-heading {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.proj-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  background: #000;
-}
-.skeleton-band {
-  height: 34px;
-  background: var(--color-border);
-}
-.skeleton-body {
-  flex: 1;
-  padding: 18px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.skeleton-line {
-  background: rgba(255,255,255,0.06);
-  height: 14px;
-}
-.skeleton-line.title { height: 28px; width: 75%; }
-.skeleton-line.d1    { width: 100%; }
-.skeleton-line.d2    { width: 85%; }
-.skeleton-line.d3    { width: 60%; }
-.skeleton-footer-bar {
-  height: 34px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  margin: 0 16px;
+  gap: var(--spacing-sm);
 }
 
-/* ── Responsive ── */
-@media (max-width: 900px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+.proj-features li {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: var(--leading-snug);
+  padding-left: var(--spacing-md);
+  position: relative;
+}
+
+.proj-features li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+}
+
+.proj-arch p {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: var(--leading-loose);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .proj-header {
+    grid-template-columns: 4rem 1fr auto;
+    gap: var(--spacing-md);
+  }
+
+  .proj-summary,
+  .proj-tags,
+  .proj-details {
+    margin-left: 0;
+  }
+
+  .proj-name {
+    font-size: 1rem;
+  }
+
+  .proj-details-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .proj-github-link {
+    display: none;
   }
 }
-@media (max-width: 600px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
+
+@media (max-width: 480px) {
+  .proj-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .proj-meta {
+    display: none;
   }
 }
