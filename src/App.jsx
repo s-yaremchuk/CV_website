@@ -34,19 +34,17 @@ function App() {
       infinite: false,
     });
 
-    // Connect Lenis to GSAP ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
+    const lenisRaf = (time) => {
       lenis.raf(time * 1000);
-    });
+    };
 
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(lenisRaf);
     gsap.ticker.lagSmoothing(0);
 
-    // Cleanup
     return () => {
       lenis.destroy();
-      gsap.ticker.remove(lenis.raf);
+      gsap.ticker.remove(lenisRaf);
     };
   }, []);
 

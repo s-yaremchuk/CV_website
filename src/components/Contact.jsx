@@ -8,7 +8,7 @@ import './styles/Contact.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const contactRef = useRef(null);
 
   useEffect(() => {
@@ -35,9 +35,9 @@ const Contact = () => {
       
       <div className="contact-wrapper">
         <p className="contact-text">
-          {t.contactTitle === 'Contact' 
-            ? 'Open for new opportunities. Feel free to contact me.' 
-            : 'Відкритий до нових можливостей. Зв\'яжіться зі мною.'}
+          {lang === 'en'
+            ? 'Open for new opportunities. Feel free to contact me.'
+            : 'Відкритий до нових можливостей. Звʼяжіться зі мною.'}
         </p>
         
         <div className="contact-links">
