@@ -7,36 +7,48 @@ import './styles/Skills.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const skillsData = [
-  { 
-    name: 'JavaScript / Node.js', 
-    descEn: 'Deep understanding of Event Loop, asynchronous programming (Promises, async/await), and DOM API. Experience building RESTful APIs with Express, handling file systems, and working with data streams.',
-    descUa: 'Глибоке розуміння Event Loop, асинхронного програмування (Promises, async/await) та DOM API. Досвід створення RESTful API за допомогою Express, роботи з файловою системою та потоками даних.',
-    tags: ['ES6+', 'Express.js', 'Async/Await', 'REST'] 
+  {
+    name: 'JavaScript',
+    descEn: 'The core of all my projects. Strong grasp of ES6+ features, async programming (Promises, async/await), the Event Loop, DOM API, and ES Modules. Applied across both browser environments (Ua Pomodoro — vanilla, no bundler) and Node.js runtime (Lab 7 Express API).',
+    descUa: 'Основа всіх моїх проектів. Впевнене знання ES6+, асинхронного програмування (Promises, async/await), Event Loop, DOM API та ES Modules. Застосовано у браузерних середовищах (Ua Pomodoro — ванільний JS без збирача) та Node.js (Express API в Lab 7).',
+    tags: ['ES6+', 'Async/Await', 'ES Modules', 'DOM API', 'Event Loop']
   },
-  { 
-    name: 'HTML & CSS', 
-    descEn: 'Semantic markup, accessibility standards, and SEO best practices. Proficient in modern CSS layout techniques including Flexbox, Grid, CSS Variables, and responsive design without relying on heavy frameworks.',
-    descUa: 'Семантична розмітка, стандарти доступності (a11y) та базове SEO. Володіння сучасними методами верстки: Flexbox, Grid, CSS Variables та створення адаптивного дизайну без важких фреймворків.',
-    tags: ['Semantic HTML', 'CSS Grid', 'Flexbox', 'Responsive'] 
+  {
+    name: 'React.js',
+    descEn: 'Used across four projects (Lab 7–10) and this portfolio site. Comfortable with functional components, Hooks (useState, useEffect, useRef, useCallback, useMemo), React Router v6/v7, and Context API for global state management without third-party state libraries.',
+    descUa: 'Використано в чотирьох проектах (Lab 7–10) та цьому сайті. Функціональні компоненти, хуки (useState, useEffect, useRef, useCallback, useMemo), React Router v6/v7, Context API для управління глобальним станом без сторонніх бібліотек.',
+    tags: ['React 18/19', 'Hooks', 'Context API', 'React Router', 'JSX']
   },
-  { 
-    name: 'React.js', 
-    descEn: 'Building interactive user interfaces using functional components and Hooks. State management, component lifecycle, and integrating with external APIs.',
-    descUa: 'Створення інтерактивних користувацьких інтерфейсів за допомогою функціональних компонентів та Хуків. Управління станом та інтеграція зі сторонніми API.',
-    tags: ['Hooks', 'Context API', 'Vite', 'GSAP'] 
+  {
+    name: 'Node.js & Express.js',
+    descEn: 'Built a full REST API server from scratch in Lab 7: CRUD endpoints for inventory items, file upload handling with Multer (multipart/form-data, disk storage, automatic cleanup), and JSON file-based persistence. Practical experience with middleware, routing, and the request-response cycle.',
+    descUa: 'Побудував повноцінний REST API сервер з нуля в Lab 7: CRUD-ендпоінти для товарів інвентарю, завантаження файлів через Multer (multipart/form-data, зберігання на диску, автоматичне видалення), JSON-файл як сховище. Практичний досвід з middleware, маршрутизацією та циклом запит-відповідь.',
+    tags: ['Node.js', 'Express.js', 'REST API', 'Multer', 'Middleware']
   },
-  { 
-    name: 'Databases & SQL', 
-    descEn: 'Designing relational database schemas, writing complex queries, and understanding basic optimization techniques using PostgreSQL.',
-    descUa: 'Проєктування схем реляційних баз даних, написання складних запитів та розуміння базових технік оптимізації за допомогою PostgreSQL.',
-    tags: ['PostgreSQL', 'SQL', 'Schema Design'] 
+  {
+    name: 'HTML & CSS',
+    descEn: 'Semantic markup and modern CSS layout. Built complex visual components purely in CSS/JSX — including an interactive wagon seat map (Lab 10) with three visual states and class-specific geometry, and a Swiss-grid design system for Ua Pomodoro using CSS custom properties.',
+    descUa: 'Семантична розмітка та сучасний CSS. Побудував складні візуальні компоненти на чистому CSS/JSX — інтерактивна схема вагона (Lab 10) з трьома станами та геометрією під клас, дизайн-система швейцарської сітки для Ua Pomodoro на CSS-змінних.',
+    tags: ['CSS Grid', 'Flexbox', 'CSS Modules', 'CSS Variables', 'Responsive']
   },
-  { 
-    name: 'Version Control', 
-    descEn: 'Proficient in Git workflow: branching, merging, resolving conflicts, and managing code repositories on GitHub.',
-    descUa: 'Впевнене володіння Git: розгалуження, злиття, вирішення конфліктів та управління репозиторіями на GitHub.',
-    tags: ['Git', 'GitHub', 'Workflow'] 
-  }
+  {
+    name: 'Browser APIs & Web Platform',
+    descEn: 'Direct experience with native browser APIs: Web Audio API (programmatic sound in Ua Pomodoro without audio files), Fetch API (Lab 8 — all HTTP calls without Axios), localStorage for persistent state across sessions (Lab 7–10), and PKCE OAuth 2.0 flow implemented from scratch for Spotify.',
+    descUa: 'Прямий досвід з нативними браузерними API: Web Audio API (програмний звук без аудіофайлів), Fetch API (Lab 8 — всі HTTP-запити без Axios), localStorage для збереження стану між сесіями (Lab 7–10), PKCE OAuth 2.0 реалізований з нуля для Spotify.',
+    tags: ['Web Audio API', 'Fetch API', 'localStorage', 'PKCE OAuth', 'Fullscreen API']
+  },
+  {
+    name: 'Build Tools & Dev Workflow',
+    descEn: 'Configured and used Vite across multiple React projects. Set up GitHub Actions CI/CD pipeline for automated builds and GitHub Pages deployment. Proficient in Git branching workflow, conventional commits, and managing multi-package repositories.',
+    descUa: 'Налаштування та використання Vite у кількох React-проектах. Створення GitHub Actions CI/CD пайплайну для автоматичних збірок та деплою на GitHub Pages. Git-воркфлоу, описові коміти, робота з репозиторіями.',
+    tags: ['Vite', 'GitHub Actions', 'CI/CD', 'Git', 'npm']
+  },
+  {
+    name: 'Animation & Interaction',
+    descEn: 'Implemented scroll-driven animations on this portfolio using GSAP + ScrollTrigger and smooth scrolling via Lenis. Built CSS-only micro-animations: seat pulse animation in Lab 10, staggered card reveals, slide-in Toast notifications, and hover effects across all projects.',
+    descUa: 'Анімації на скрол цього сайту через GSAP + ScrollTrigger та плавний скрол через Lenis. CSS-мікроанімації: пульсація обраного місця (Lab 10), стaggered-поява карток, slide-in Toast-сповіщення, hover-ефекти в усіх проектах.',
+    tags: ['GSAP', 'ScrollTrigger', 'Lenis', 'CSS Animations', 'Micro-interactions']
+  },
 ];
 
 const Skills = () => {

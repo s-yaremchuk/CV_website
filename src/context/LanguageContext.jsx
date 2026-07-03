@@ -4,8 +4,8 @@ const translations = {
   en: {
     greeting: '', // Removed
     name: 'Serhii Yaremchuk',
-    title: 'Junior Backend Developer',
-    description: 'Junior Web Developer focused on transitioning into full-time backend engineering. Specialized in server-side logic and database architecture, with growing proficiency in React and AI integrations.',
+    title: 'JavaScript Developer',
+    description: 'JavaScript Developer with hands-on experience building full-stack web applications. From REST APIs with Node.js/Express to interactive React SPAs — focused on writing clean, maintainable code and shipping working products.',
     viewProjects: 'Projects',
     downloadCV: 'Download CV',
     aboutTitle: 'About & Education',
@@ -23,8 +23,8 @@ const translations = {
   ua: {
     greeting: '', // Removed
     name: 'Сергій Яремчук',
-    title: 'Junior Backend Розробник',
-    description: 'Початківець Web Developer із фокусом на backend-розробку. Спеціалізуюся на серверній логіці та архітектурі баз даних, паралельно вдосконалюючи навички роботи з React та ШІ.',
+    title: 'JavaScript Developer',
+    description: 'JavaScript Developer з практичним досвідом побудови full-stack веб-застосунків. Від REST API на Node.js/Express до інтерактивних React SPA — фокус на чистому коді та робочих продуктах.',
     viewProjects: 'Проєкти',
     downloadCV: 'Завантажити CV',
     aboutTitle: 'Про мене та Освіта',
