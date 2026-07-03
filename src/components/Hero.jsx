@@ -36,7 +36,7 @@ const Hero = () => {
           <button className="hero-btn primary" onClick={() => scrollTo('projects')}>
             {t.viewProjects}
           </button>
-          <a href="#" className="hero-btn secondary">
+          <a href={`${import.meta.env.BASE_URL}Serhii_Yaremchuk_CV.pdf`} download="Serhii_Yaremchuk_CV.pdf" className="hero-btn secondary">
             {t.downloadCV}
           </a>
         </div>
