@@ -10,6 +10,91 @@ gsap.registerPlugin(ScrollTrigger);
 // ─── Curated project data extracted from README files ─────────────────────────
 const PROJECTS = [
   {
+    id: 'digital-time-machine',
+    name: 'Digital Time Machine — Interactive Chronicle',
+    url: 'https://github.com/s-yaremchuk/DigitalTimeMachine',
+    language: 'JavaScript',
+    tags: ['React 19', 'Framer Motion', 'REST API', 'Vite', 'CSS Custom Properties'],
+    summaryEn: 'A client-side SPA that functions as an interactive newspaper chronicle. Users enter any date, and the application aggregates currency rates, top songs, historical events, memes, and trending videos for that specific time, rendering them in a vintage broadsheet layout.',
+    summaryUa: 'Клієнтський SPA у вигляді інтерактивної газети-хроніки. Користувач вводить довільну дату, а застосунок збирає для неї курси валют, топ-пісні, історичні події, меми та відео, рендерячи все це у стилі класичного газетного розвороту.',
+    featuresEn: [
+      'Integration with 3 public APIs: Frankfurter, iTunes Search, and Wikimedia "On This Day"',
+      'Curated local databases for memes, movies, and YouTube trends by year',
+      'Procedural generated "stains" (coffee rings/ink) using seeded PRNG (mulberry32) for deterministic rendering per date',
+      'SVG noise and multiple CSS gradients to simulate realistic paper texture',
+      'Audio player for iTunes previews with auto-pause across multiple instances',
+      'Framer Motion for layout transitions and staggered reveals',
+      'Robust fallback strategies for missing API data (e.g. math-based currency generation)'
+    ],
+    featuresUa: [
+      'Інтеграція з 3 публічними API: Frankfurter, iTunes Search, Wikimedia "On This Day"',
+      'Кураторські локальні бази для мемів, фільмів та YouTube трендів за роками',
+      'Процедурна генерація "плям" (від кави/чорнила) через seeded PRNG для детермінованого вигляду на певну дату',
+      'SVG-шум та множинні CSS-градієнти для імітації реалістичної текстури паперу',
+      'Аудіоплеєр для прев\'ю iTunes з авто-паузою інших треків',
+      'Framer Motion для анімацій переходів та плавної появи контенту',
+      'Надійні стратегії фолбеків при відсутності даних (напр. математична генерація курсів)'
+    ],
+    archEn: 'Data aggregation layer handles parallel API requests (Promise.all) with graceful degradation. Strict CSP configuration in index.html. Custom seeded PRNG ensures visual consistency without storing state.',
+    archUa: 'Шар агрегації даних обробляє паралельні запити (Promise.all) із graceful degradation. Жорстка конфігурація CSP. Кастомний seeded PRNG гарантує візуальну консистентність без збереження стану.'
+  },
+  {
+    id: 'smart-todo',
+    name: 'Smart To-Do — Google Calendar Sync',
+    url: 'https://github.com/s-yaremchuk/To-do',
+    language: 'JavaScript',
+    tags: ['React 19', 'OAuth 2.0 PKCE', 'Google Calendar API', 'Web Crypto API', 'Vite'],
+    summaryEn: 'A client-side task management SPA featuring two-way synchronization with Google Calendar. Handles OAuth 2.0 authorization, data persistence, and API interactions entirely in the browser without a dedicated backend server.',
+    summaryUa: 'Клієнтський SPA для управління завданнями з двосторонньою синхронізацією через Google Calendar API. Обробляє OAuth 2.0 авторизацію, збереження даних та взаємодію з API повністю в браузері без бекенд-сервера.',
+    featuresEn: [
+      'Full OAuth 2.0 Authorization Code Flow with PKCE implemented from scratch',
+      'SHA-256 Code Challenge generation using native Web Crypto API',
+      'Two-way sync: CRUD operations reflect locally and on Google Calendar',
+      'Automatic token refresh lifecycle running in the background',
+      'Optimistic UI updates with manual rollback on API failure',
+      'Batch synchronization for offline-created tasks',
+      'Graceful handling of external event deletions (HTTP 404/410)'
+    ],
+    featuresUa: [
+      'Повноцінний OAuth 2.0 PKCE флоу, реалізований з нуля',
+      'Генерація SHA-256 Code Challenge через нативний Web Crypto API',
+      'Двостороння синхронізація: CRUD операції відображаються локально та в Google Calendar',
+      'Автоматичне оновлення токену у фоновому режимі',
+      'Optimistic UI оновлення з відкатом при помилці API',
+      'Пакетна синхронізація для завдань, створених офлайн',
+      'Обробка зовнішніх видалень подій з календаря (HTTP 404/410)'
+    ],
+    archEn: 'Context API abstracts the entire OAuth lifecycle. Service Module Pattern isolates HTTP logic (googleCalendar.js). State management uses React hooks with localStorage persistence as the single source of truth.',
+    archUa: 'Context API абстрагує весь життєвий цикл OAuth. Сервісний патерн ізолює HTTP-логіку. Управління станом використовує хуки React з localStorage як єдиним джерелом істини.'
+  },
+  {
+    id: 'weather-web',
+    name: 'WeatherWeb — Ukraine Forecast SPA',
+    url: 'https://github.com/s-yaremchuk/WeatherWeb',
+    language: 'JavaScript',
+    tags: ['React 19', 'Open-Meteo API', 'Geolocation API', 'localStorage', 'Vite'],
+    summaryEn: 'A lightweight weather SPA providing current conditions and a 5-day forecast for Ukrainian settlements. Integrates native browser APIs for location tracking and persists user preferences locally.',
+    summaryUa: 'Легкий погодний SPA, що надає поточні умови та прогноз на 5 днів для населених пунктів України. Інтегрує нативні браузерні API для геолокації та зберігає налаштування користувача локально.',
+    featuresEn: [
+      'Automatic geolocation using native Browser Geolocation API',
+      'Reverse geocoding via OpenStreetMap Nominatim API',
+      'City search with 400ms debounced autocomplete suggestions',
+      '5-day forecast powered by Open-Meteo API with hourly drill-down',
+      'Persistent "Home Location" selection via localStorage',
+      'Light/Dark theme toggling using CSS Custom Properties'
+    ],
+    featuresUa: [
+      'Автоматична геолокація через нативний Browser Geolocation API',
+      'Зворотне геокодування через OpenStreetMap Nominatim API',
+      'Пошук міст з автодоповненням (debounce 400мс)',
+      'Прогноз на 5 днів від Open-Meteo API з погодинною деталізацією',
+      'Збереження "Домашньої локації" через localStorage',
+      'Перемикання світлої/темної теми на CSS-змінних'
+    ],
+    archEn: 'Monolithic component architecture prioritizing rapid data access. Implements fallback chaining for location resolution and maps WMO weather codes to UI states seamlessly.',
+    archUa: 'Монолітна компонентна архітектура з пріоритетом на швидкий доступ до даних. Реалізує ланцюжок фолбеків для геокодування та мапить погодні коди WMO на стани UI.'
+  },
+  {
     id: 'ukrzaliznytsia',
     name: 'Ukrzaliznytsia Booking System',
     url: 'https://github.com/s-yaremchuk/WEB-project-Modul2',
